@@ -39,7 +39,7 @@ const ProfileChange = () => {
       first_name: data.firsrName,
       last_name: data.lastName,
       password: user.data?.password,
-      avatar: avatar ? avatar : "",
+      avatar: avatar ? avatar : null,
     };
 
     dispatch(changeUserData(newUser, userLocal?.id, back));

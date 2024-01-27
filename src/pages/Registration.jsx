@@ -49,6 +49,7 @@ const Registration = () => {
     };
     setpasswors("")
     setErrorAvatar(null)
+    console.log(avatar);
     dispach(registration(user));
   };
 

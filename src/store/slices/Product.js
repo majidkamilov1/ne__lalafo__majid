@@ -87,7 +87,8 @@ export const getMaxPrice = () => {
     axios
       .get(`${API}/product/?ordering=-price`)
       .then((response) => {
-        dispatch(setMaxPrice(response?.data?.results[0].price));
+        if (response?.data?.results.lenght)
+          dispatch(setMaxPrice(response?.data?.results[0].price));
       })
       .catch((error) => dispatch(setError(error.response.data)));
   };
