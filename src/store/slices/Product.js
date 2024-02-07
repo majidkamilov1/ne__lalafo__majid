@@ -15,8 +15,9 @@ const userSlice = createSlice({
   },
   reducers: {
     setMaxPrice: (state, { payload }) => {
-      state.maxPrice = payload;
-      // console.log(payload);
+      state.maxPrice = payload?.results?.sort(
+        (a, b) => b.price - a.price
+      )[0].price;
     },
     setProducts: (state, { payload }) => {
       state.data = payload;
@@ -63,6 +64,7 @@ export const getProducts = (params, AfterGet) => {
       .then((response) => {
         dispatch(setProducts(response?.data));
         AfterGet(response.data);
+        dispatch(setMaxPrice(response?.data));
       })
       .catch((error) => dispatch(setError(error?.response?.data)))
       .finally(() => dispatch(setLoading(false)));
@@ -80,22 +82,5 @@ export const getProduct = ({ id }) => {
       })
       .catch((error) => dispatch(setError(error.response.data)))
       .finally(() => dispatch(setLoading(null)));
-  };
-};
-
-export const getMaxPrice = () => {
-  return async (dispatch) => {
-    axios
-      .get(`${API}/product/?ordering=-price`)
-      .then((response) => {
-        if (response?.data?.results.length)
-          dispatch(
-            setMaxPrice(
-              response?.data?.results?.sort((a, b) => b.price - a.price)[0]
-                .price
-            )
-          );
-      })
-      .catch((error) => dispatch(setError(error.response.data)));
   };
 };
