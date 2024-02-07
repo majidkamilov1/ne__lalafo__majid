@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 const DualRangeSlider = () => {
   const { maxPrice } = useSelector((state) => state.product);
-
-  const [range1, setRange1] = useState([0, maxPrice ? maxPrice : 2000]);
+  // console.log(maxPrice);
+  const [range1, setRange1] = useState([0, maxPrice ? maxPrice : 9000000]);
   const dispatch = useDispatch();
   const handleRange1Change = (value) => {
     setRange1(value);
