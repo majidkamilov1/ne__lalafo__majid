@@ -13,7 +13,6 @@ import { Autoplay } from "swiper/modules";
 const CardData = () => {
   const Params = useParams();
   const { oneData, loading } = useSelector((state) => state.product);
-  console.log(oneData);
   const dispatch = useDispatch();
   const [bigImage, setbigImage] = useState("");
   useEffect(() => {
@@ -40,7 +39,6 @@ const CardData = () => {
       dispatch(removeCart({ id: id }));
     }
   };
-
   return (
     <>
       {loading ? (
