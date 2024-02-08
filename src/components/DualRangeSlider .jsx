@@ -2,19 +2,17 @@ import { useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getMaxPrice, setCurrentPage } from "../store/slices/Product";
+import {  setCurrentPage } from "../store/slices/Product";
 import { useNavigate } from "react-router-dom";
 
 const DualRangeSlider = () => {
   const { maxPrice } = useSelector((state) => state.product);
-  // console.log(maxPrice);
   const [range1, setRange1] = useState([0, maxPrice ? maxPrice : 9000000]);
   const dispatch = useDispatch();
   const handleRange1Change = (value) => {
     setRange1(value);
   };
   useEffect(() => {
-    dispatch(getMaxPrice());
   }, []);
   const navigate = useNavigate();
 
