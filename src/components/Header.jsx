@@ -151,7 +151,6 @@ const Header = () => {
                   </Link>
                 </li>
               )}
-              
             </ul>
           </nav>
           {StateSearch && (
@@ -160,7 +159,7 @@ const Header = () => {
               className="mini__search z-[1] justify-between items-center bg-[#24253c] rounded-[10px] h-[55px] w-[95%] absolute bottom-[-45px] px-4 left-[2.5%] "
             >
               <input
-                onChange={(e) => setsearchValue(e)}
+                onChange={(e) => setsearchValue(e.target.value)}
                 value={searchValue}
                 placeholder="Search"
                 className=" w-[90%] h-[100%] text-[#b2b4bc] placeholder:text-[#b2b4bc] font-semibold"
