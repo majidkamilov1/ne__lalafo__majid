@@ -228,4 +228,7 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default Registra
+
+
+//asdsadasd
