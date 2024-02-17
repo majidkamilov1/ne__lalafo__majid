@@ -229,6 +229,3 @@ const Registration = () => {
 };
 
 export default Registra
-
-
-//asdsadasd
